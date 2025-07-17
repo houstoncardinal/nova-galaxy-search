@@ -118,6 +118,38 @@ export default {
 						filter: 'brightness(1.2) blur(1px)',
 						opacity: '0.9'
 					}
+				},
+				'particle-float': {
+					'0%': { transform: 'translate(0, 0) rotate(0deg)', opacity: '0' },
+					'10%': { opacity: '1' },
+					'90%': { opacity: '1' },
+					'100%': { transform: 'translate(100vw, -100vh) rotate(360deg)', opacity: '0' }
+				},
+				'matrix-rain': {
+					'0%': { transform: 'translateY(-100vh)', opacity: '0' },
+					'10%': { opacity: '1' },
+					'90%': { opacity: '1' },
+					'100%': { transform: 'translateY(100vh)', opacity: '0' }
+				},
+				'hologram': {
+					'0%, 100%': { 
+						transform: 'perspective(1000px) rotateX(0deg)',
+						filter: 'hue-rotate(0deg)'
+					},
+					'50%': { 
+						transform: 'perspective(1000px) rotateX(2deg)',
+						filter: 'hue-rotate(90deg)'
+					}
+				},
+				'morph': {
+					'0%, 100%': { borderRadius: '20px' },
+					'25%': { borderRadius: '40px 20px' },
+					'50%': { borderRadius: '20px 40px' },
+					'75%': { borderRadius: '40px 40px 20px 20px' }
+				},
+				'scan-line': {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(100vw)' }
 				}
 			},
 			animation: {
@@ -126,7 +158,12 @@ export default {
 				'nova-pulse': 'nova-pulse 3s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
 				'cosmic-rotate': 'cosmic-rotate 20s linear infinite',
-				'glow-pulse': 'glow-pulse 4s ease-in-out infinite'
+				'glow-pulse': 'glow-pulse 4s ease-in-out infinite',
+				'particle-float': 'particle-float 15s linear infinite',
+				'matrix-rain': 'matrix-rain 8s linear infinite',
+				'hologram': 'hologram 5s ease-in-out infinite',
+				'morph': 'morph 8s ease-in-out infinite',
+				'scan-line': 'scan-line 3s ease-in-out infinite'
 			}
 		}
 	},
