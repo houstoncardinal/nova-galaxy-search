@@ -8,142 +8,60 @@
 
 @layer base {
   :root {
-    /* Cosmic Theme (Default) */
+    /* Space Color Palette */
     --background: 220 27% 4%;
     --foreground: 220 14% 96%;
+
     --card: 220 25% 6%;
     --card-foreground: 220 14% 96%;
+
     --popover: 220 25% 6%;
     --popover-foreground: 220 14% 96%;
+
+    /* Nova Blue Primary */
     --primary: 220 100% 64%;
     --primary-foreground: 220 14% 4%;
     --primary-glow: 220 100% 74%;
+
+    /* Cosmic Secondary */
     --secondary: 260 60% 65%;
     --secondary-foreground: 220 14% 96%;
+
+    /* Deep Space Muted */
     --muted: 220 25% 8%;
     --muted-foreground: 220 9% 70%;
+
+    /* Neon Accent */
     --accent: 280 100% 70%;
     --accent-foreground: 220 14% 4%;
+
     --destructive: 0 84% 65%;
     --destructive-foreground: 220 14% 96%;
+
     --border: 220 25% 12%;
     --input: 220 25% 8%;
     --ring: 220 100% 64%;
+
     --radius: 0.75rem;
+
+    /* Nova-specific colors */
     --nova-violet: 260 100% 75%;
     --nova-cyan: 190 100% 75%;
     --nova-deep: 220 30% 3%;
     --nova-surface: 220 25% 7%;
-    --gradient-cosmic: linear-gradient(135deg, hsl(220 30% 3%), hsl(220 27% 4%));
-    --gradient-nova: linear-gradient(135deg, hsl(220 100% 64%), hsl(260 60% 65%));
-    --gradient-glow: linear-gradient(135deg, hsl(220 100% 74%), hsl(260 100% 75%));
-    --shadow-nova: 0 8px 32px hsl(220 100% 64% / 0.2);
-    --shadow-cosmic: 0 4px 20px hsl(280 100% 70% / 0.15);
-    --glow-nova: 0 0 30px hsl(220 100% 64% / 0.4);
+
+    /* Gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(var(--nova-deep)), hsl(var(--background)));
+    --gradient-nova: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-glow: linear-gradient(135deg, hsl(var(--primary-glow)), hsl(var(--nova-violet)));
+
+    /* Effects */
+    --shadow-nova: 0 8px 32px hsl(var(--primary) / 0.2);
+    --shadow-cosmic: 0 4px 20px hsl(var(--accent) / 0.15);
+    --glow-nova: 0 0 30px hsl(var(--primary) / 0.4);
+
+    /* Animations */
     --transition-nova: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  /* Matrix Theme */
-  [data-theme="matrix"] {
-    --background: 120 30% 4%;
-    --foreground: 120 50% 85%;
-    --card: 120 25% 6%;
-    --card-foreground: 120 50% 85%;
-    --popover: 120 25% 6%;
-    --popover-foreground: 120 50% 85%;
-    --primary: 120 100% 50%;
-    --primary-foreground: 120 30% 4%;
-    --primary-glow: 120 100% 60%;
-    --secondary: 140 60% 55%;
-    --secondary-foreground: 120 50% 85%;
-    --muted: 120 25% 8%;
-    --muted-foreground: 120 20% 60%;
-    --accent: 100 100% 60%;
-    --accent-foreground: 120 30% 4%;
-    --destructive: 0 84% 65%;
-    --destructive-foreground: 120 50% 85%;
-    --border: 120 25% 12%;
-    --input: 120 25% 8%;
-    --ring: 120 100% 50%;
-    --nova-violet: 140 80% 65%;
-    --nova-cyan: 180 100% 70%;
-    --nova-deep: 120 30% 3%;
-    --nova-surface: 120 25% 7%;
-    --gradient-cosmic: linear-gradient(135deg, hsl(120 30% 3%), hsl(120 30% 4%));
-    --gradient-nova: linear-gradient(135deg, hsl(120 100% 50%), hsl(140 60% 55%));
-    --gradient-glow: linear-gradient(135deg, hsl(120 100% 60%), hsl(140 80% 65%));
-    --shadow-nova: 0 8px 32px hsl(120 100% 50% / 0.2);
-    --shadow-cosmic: 0 4px 20px hsl(100 100% 60% / 0.15);
-    --glow-nova: 0 0 30px hsl(120 100% 50% / 0.4);
-  }
-
-  /* Neon Theme */
-  [data-theme="neon"] {
-    --background: 300 30% 4%;
-    --foreground: 300 20% 90%;
-    --card: 300 25% 6%;
-    --card-foreground: 300 20% 90%;
-    --popover: 300 25% 6%;
-    --popover-foreground: 300 20% 90%;
-    --primary: 280 100% 70%;
-    --primary-foreground: 300 30% 4%;
-    --primary-glow: 280 100% 80%;
-    --secondary: 320 80% 65%;
-    --secondary-foreground: 300 20% 90%;
-    --muted: 300 25% 8%;
-    --muted-foreground: 300 15% 65%;
-    --accent: 340 100% 75%;
-    --accent-foreground: 300 30% 4%;
-    --destructive: 0 84% 65%;
-    --destructive-foreground: 300 20% 90%;
-    --border: 300 25% 12%;
-    --input: 300 25% 8%;
-    --ring: 280 100% 70%;
-    --nova-violet: 280 100% 75%;
-    --nova-cyan: 200 100% 75%;
-    --nova-deep: 300 30% 3%;
-    --nova-surface: 300 25% 7%;
-    --gradient-cosmic: linear-gradient(135deg, hsl(300 30% 3%), hsl(300 30% 4%));
-    --gradient-nova: linear-gradient(135deg, hsl(280 100% 70%), hsl(320 80% 65%));
-    --gradient-glow: linear-gradient(135deg, hsl(280 100% 80%), hsl(280 100% 75%));
-    --shadow-nova: 0 8px 32px hsl(280 100% 70% / 0.2);
-    --shadow-cosmic: 0 4px 20px hsl(340 100% 75% / 0.15);
-    --glow-nova: 0 0 30px hsl(280 100% 70% / 0.4);
-  }
-
-  /* Solar Theme */
-  [data-theme="solar"] {
-    --background: 25 30% 4%;
-    --foreground: 25 20% 90%;
-    --card: 25 25% 6%;
-    --card-foreground: 25 20% 90%;
-    --popover: 25 25% 6%;
-    --popover-foreground: 25 20% 90%;
-    --primary: 35 100% 60%;
-    --primary-foreground: 25 30% 4%;
-    --primary-glow: 35 100% 70%;
-    --secondary: 15 80% 65%;
-    --secondary-foreground: 25 20% 90%;
-    --muted: 25 25% 8%;
-    --muted-foreground: 25 15% 65%;
-    --accent: 45 100% 70%;
-    --accent-foreground: 25 30% 4%;
-    --destructive: 0 84% 65%;
-    --destructive-foreground: 25 20% 90%;
-    --border: 25 25% 12%;
-    --input: 25 25% 8%;
-    --ring: 35 100% 60%;
-    --nova-violet: 50 90% 65%;
-    --nova-cyan: 190 100% 75%;
-    --nova-deep: 25 30% 3%;
-    --nova-surface: 25 25% 7%;
-    --gradient-cosmic: linear-gradient(135deg, hsl(25 30% 3%), hsl(25 30% 4%));
-    --gradient-nova: linear-gradient(135deg, hsl(35 100% 60%), hsl(15 80% 65%));
-    --gradient-glow: linear-gradient(135deg, hsl(35 100% 70%), hsl(50 90% 65%));
-    --shadow-nova: 0 8px 32px hsl(35 100% 60% / 0.2);
-    --shadow-cosmic: 0 4px 20px hsl(45 100% 70% / 0.15);
-    --glow-nova: 0 0 30px hsl(35 100% 60% / 0.4);
-  }
 
     --sidebar-background: 0 0% 98%;
 
