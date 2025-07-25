@@ -3,6 +3,7 @@ import { NovaButton } from "./ui/nova-button"
 import { Input } from "./ui/input"
 import { useState, useEffect } from "react"
 import heroImage from "@/assets/nova-hero.jpg"
+import { supabase } from "@/integrations/supabase/client"
 
 // Mock AI suggestions and search results
 const aiSuggestions = [
@@ -33,43 +34,64 @@ export const NovaHero = () => {
   const [isListening, setIsListening] = useState(false)
   const [searchResults, setSearchResults] = useState<any[]>([])
 
-  // Simulate search results
+  // Real web search functionality
   const performSearch = async (query: string) => {
     if (!query.trim()) return
     
     setIsSearching(true)
     setShowSuggestions(false)
     
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 800))
-    
-    // Mock results
-    const mockResults = [
-      {
-        id: 1,
-        title: `Results for "${query}"`,
-        description: "AI-powered insights and analysis",
-        type: "article",
-        relevance: 0.95
-      },
-      {
-        id: 2,
-        title: "Related topics and discussions",
-        description: "Community insights and expert opinions",
-        type: "discussion",
-        relevance: 0.87
-      },
-      {
-        id: 3,
-        title: "Tools and resources",
-        description: "Practical applications and tutorials",
-        type: "tool",
-        relevance: 0.82
+    try {
+      const { data, error } = await supabase.functions.invoke('web-search', {
+        body: { 
+          query: query.trim(),
+          session_id: crypto.randomUUID()
+        }
+      })
+
+      if (error) {
+        console.error('Search error:', error)
+        setSearchResults([{
+          id: 1,
+          title: "Search Error",
+          description: "There was an error performing your search. Please try again.",
+          type: "error",
+          relevance: 0
+        }])
+      } else if (data?.results) {
+        // Transform results for display
+        const transformedResults = data.results.map((result: any, index: number) => ({
+          id: index + 1,
+          title: result.title,
+          description: result.description,
+          url: result.url,
+          source: result.source,
+          type: result.source.toLowerCase().replace(' ', '_'),
+          relevance: result.relevance || 0.5,
+          metadata: result.metadata
+        }))
+        setSearchResults(transformedResults)
+      } else {
+        setSearchResults([{
+          id: 1,
+          title: "No Results Found",
+          description: "Try different keywords or check your spelling",
+          type: "info",
+          relevance: 0
+        }])
       }
-    ]
-    
-    setSearchResults(mockResults)
-    setIsSearching(false)
+    } catch (error) {
+      console.error('Search failed:', error)
+      setSearchResults([{
+        id: 1,
+        title: "Search Failed",
+        description: "Please check your connection and try again",
+        type: "error",
+        relevance: 0
+      }])
+    } finally {
+      setIsSearching(false)
+    }
   }
 
   const handleSearch = () => {
@@ -276,27 +298,45 @@ export const NovaHero = () => {
                     {searchResults.map((result) => (
                       <div 
                         key={result.id}
-                        className="p-4 bg-white/60 rounded-xl border border-gray-200 hover:bg-white/80 transition-all cursor-pointer group"
-                      >
-                        <div className="flex items-start justify-between">
-                          <div className="flex-1">
-                            <h3 className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
-                              {result.title}
-                            </h3>
-                            <p className="text-sm text-gray-600 mt-1">
-                              {result.description}
-                            </p>
-                            <div className="flex items-center space-x-2 mt-2">
-                              <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
-                                {result.type}
-                              </span>
-                              <span className="text-xs text-gray-500">
-                                {Math.round(result.relevance * 100)}% relevant
-                              </span>
-                            </div>
-                          </div>
-                          <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" />
-                        </div>
+                         className="p-4 bg-white/60 rounded-xl border border-gray-200 hover:bg-white/80 transition-all cursor-pointer group"
+                         onClick={() => result.url && window.open(result.url, '_blank')}
+                       >
+                         <div className="flex items-start justify-between">
+                           <div className="flex-1">
+                             <div className="flex items-center space-x-2 mb-1">
+                               <h3 className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
+                                 {result.title}
+                               </h3>
+                               {result.source && (
+                                 <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+                                   {result.source}
+                                 </span>
+                               )}
+                             </div>
+                             <p className="text-sm text-gray-600 mt-1">
+                               {result.description}
+                             </p>
+                             {result.url && (
+                               <p className="text-xs text-green-600 mt-1 truncate">
+                                 {result.url}
+                               </p>
+                             )}
+                             <div className="flex items-center space-x-2 mt-2">
+                               <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
+                                 {result.type}
+                               </span>
+                               <span className="text-xs text-gray-500">
+                                 {Math.round(result.relevance * 100)}% relevant
+                               </span>
+                               {result.metadata?.stars && (
+                                 <span className="text-xs text-yellow-600">
+                                   ⭐ {result.metadata.stars}
+                                 </span>
+                               )}
+                             </div>
+                           </div>
+                           <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" />
+                         </div>
                       </div>
                     ))}
                   </div>
