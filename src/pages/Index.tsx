@@ -3,17 +3,13 @@ import { NovaHero } from "@/components/NovaHero"
 import { NovaFeatures } from "@/components/NovaFeatures"
 import { NovaMarketplace } from "@/components/NovaMarketplace"
 import { NovaFooter } from "@/components/NovaFooter"
+import { VercelV0Chat } from "@/components/ui/v0-ai-chat";
 
-const Index = () => {
+export default function Index() {
   return (
-    <div className="min-h-screen bg-cosmic">
-      <NovaHeader />
-      <NovaHero />
-      <NovaFeatures />
-      <NovaMarketplace />
-      <NovaFooter />
-    </div>
+    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
+      {/* Main AI-powered Search Engine Area */}
+      <VercelV0Chat />
+    </main>
   );
-};
-
-export default Index;
+}

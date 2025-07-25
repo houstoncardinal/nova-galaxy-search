@@ -1,73 +1,163 @@
-# Welcome to your Lovable project
+# Nova Search - Infinite Web Search Engine
 
-## Project info
+A futuristic, AI-powered search engine that searches the world wide web infinitely with a beautiful, pillowy, and luxurious interface.
 
-**URL**: https://lovable.dev/projects/5c959cc5-5204-4433-9f4d-9a8ac4cba468
+## ✨ Features
 
-## How can I edit this code?
+### 🔍 Infinite Web Search
+- **Multi-Source Search**: Searches across DuckDuckGo, Wikipedia, News APIs, GitHub, Stack Overflow, YouTube, and more
+- **Infinite Results**: Load more results endlessly with the "Load More" button
+- **Real-time APIs**: Connects to real search APIs for live results
+- **Smart Aggregation**: Combines results from multiple sources with intelligent relevance scoring
 
-There are several ways of editing your application.
+### 🎨 Futuristic Design
+- **Pillowy Interface**: Soft, luxurious design with large border radius and smooth shadows
+- **Dreamy Auras**: Beautiful color glows and gradients throughout the interface
+- **Matrix Code Rain**: Animated background with futuristic matrix-style code
+- **Galaxy Particles**: Floating particles that create a space-like atmosphere
+- **Robotic Helper Vibes**: Clean white background with blue, purple, and cyan accents
 
-**Use Lovable**
+### 🤖 AI-Powered Features
+- **AI Insights**: Each result includes AI-generated insights and key points
+- **Smart Relevance**: Results are sorted by AI-determined relevance
+- **Semantic Understanding**: Advanced search with semantic analysis
+- **Multi-format Results**: Articles, videos, code, data, tools, and community content
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5c959cc5-5204-4433-9f4d-9a8ac4cba468) and start prompting.
+### 📱 Interactive Experience
+- **Grid/List Views**: Toggle between different result layouts
+- **Smart Filters**: Filter results by type (articles, videos, code, etc.)
+- **Clickable Results**: Open any result in a new tab
+- **Bookmark & Share**: Save and share interesting results
+- **Responsive Design**: Works perfectly on all devices
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
+- Node.js 16+ 
+- npm or yarn
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd nova-galaxy-search-1
+```
 
-Follow these steps:
+2. Install dependencies:
+```bash
+npm install
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open your browser and navigate to `http://localhost:5175`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🔧 Configuration
 
-**Use GitHub Codespaces**
+### API Keys (Optional)
+For enhanced functionality, you can add these environment variables:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+# News API for real news search
+REACT_APP_NEWS_API_KEY=your_news_api_key_here
 
-## What technologies are used for this project?
+# YouTube API for video search (future enhancement)
+REACT_APP_YOUTUBE_API_KEY=your_youtube_api_key_here
+```
 
-This project is built with:
+### Getting API Keys
+- **News API**: Get a free key from [newsapi.org](https://newsapi.org)
+- **YouTube API**: Get a key from [Google Cloud Console](https://console.cloud.google.com)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🌐 Search Sources
 
-## How can I deploy this project?
+Nova Search searches across these sources:
 
-Simply open [Lovable](https://lovable.dev/projects/5c959cc5-5204-4433-9f4d-9a8ac4cba468) and click on Share -> Publish.
+### Primary Sources
+- **DuckDuckGo**: Web search results
+- **Wikipedia**: Encyclopedia articles and related pages
+- **News APIs**: Latest news and current events
+- **GitHub**: Code repositories and projects
+- **Stack Overflow**: Q&A and programming help
+- **YouTube**: Video tutorials and content
 
-## Can I connect a custom domain to my Lovable project?
+### Additional Web Sources
+- **Reddit**: Community discussions
+- **Medium**: Blog posts and articles
+- **Dev.to**: Developer articles
+- **Hashnode**: Technical blog posts
+- **Product Hunt**: Products and tools
+- **Indie Hackers**: Entrepreneurial discussions
 
-Yes, you can!
+## 🎯 How to Use
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. **Search**: Type your query in the search bar and press Enter
+2. **Browse**: View results in grid or list mode
+3. **Filter**: Use the filter dropdown to show specific content types
+4. **Load More**: Click "Load More Results" to get additional results
+5. **Explore**: Click any result to open it in a new tab
+6. **Save**: Use the bookmark button to save interesting results
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🛠️ Technology Stack
+
+- **Frontend**: React 18 + TypeScript
+- **Styling**: Tailwind CSS + Custom CSS
+- **UI Components**: shadcn/ui
+- **Build Tool**: Vite
+- **HTTP Client**: Axios
+- **Animations**: CSS animations + Canvas animations
+
+## 🎨 Design System
+
+### Colors
+- **Primary**: Blue (#3B82F6) to Purple (#8B5CF6) gradients
+- **Accent**: Cyan (#06B6D4) for highlights
+- **Background**: Clean white with dreamy auras
+- **Text**: Dark gray (#374151) for readability
+
+### Typography
+- **Headings**: Space Grotesk (futuristic, tech-focused)
+- **Body**: Manrope (clean, readable)
+
+### Effects
+- **Shadows**: Soft, pillowy shadows with blur
+- **Borders**: Rounded corners (2xl) for modern look
+- **Transitions**: Smooth 300ms transitions
+- **Backdrop**: Glassmorphism effects
+
+## 🔮 Future Enhancements
+
+- [ ] Voice search capabilities
+- [ ] Advanced AI chat integration
+- [ ] Search history and saved searches
+- [ ] Custom search filters
+- [ ] Dark mode support
+- [ ] Mobile app version
+- [ ] Search analytics dashboard
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- shadcn/ui for the beautiful component library
+- Tailwind CSS for the utility-first styling
+- Vite for the fast build tool
+- All the APIs that make infinite web search possible
+
+---
+
+**Nova Search** - Your gateway to infinite knowledge across the web. 🌌✨

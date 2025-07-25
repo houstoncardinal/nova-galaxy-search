@@ -70,17 +70,24 @@ export default {
 				'glow-gradient': 'var(--gradient-glow)'
 			},
 			boxShadow: {
-				'nova': 'var(--shadow-nova)',
-				'cosmic': 'var(--shadow-cosmic)',
-				'glow': 'var(--glow-nova)'
+				'nova': '0 8px 32px hsl(var(--primary) / 0.25), 0 1.5px 8px hsl(var(--primary) / 0.10)',
+				'cosmic': '0 4px 20px hsl(var(--accent) / 0.18), 0 1.5px 8px hsl(var(--accent) / 0.08)',
+				'glow': '0 0 40px hsl(var(--primary) / 0.45)',
+				'pillowy': '0 12px 48px 0 hsl(var(--primary) / 0.18), 0 2px 8px hsl(var(--primary) / 0.10)',
+			},
+			spacing: {
+				'pillowy': '3.5rem',
+				'lux': '4.5rem',
 			},
 			transitionTimingFunction: {
 				'nova': 'cubic-bezier(0.4, 0, 0.2, 1)'
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				'pill': '2.5rem',
+				'xl': '2rem',
+				'lg': '1.5rem',
+				'md': '1rem',
+				'sm': '0.75rem',
 			},
 			keyframes: {
 				'accordion-down': {
@@ -118,6 +125,47 @@ export default {
 						filter: 'brightness(1.2) blur(1px)',
 						opacity: '0.9'
 					}
+				},
+				'neural-connect': {
+					'0%': { 
+						opacity: '0',
+						transform: 'scale(0) rotate(0deg)'
+					},
+					'50%': { 
+						opacity: '1',
+						transform: 'scale(1) rotate(180deg)'
+					},
+					'100%': { 
+						opacity: '0',
+						transform: 'scale(0) rotate(360deg)'
+					}
+				},
+				'typing': {
+					'0%, 50%': { opacity: '1' },
+					'51%, 100%': { opacity: '0' }
+				},
+				'particle-drift': {
+					'0%': { 
+						transform: 'translateX(0) translateY(0)',
+						opacity: '0'
+					},
+					'10%': { opacity: '1' },
+					'90%': { opacity: '1' },
+					'100%': { 
+						transform: 'translateX(100px) translateY(-50px)',
+						opacity: '0'
+					}
+				},
+				'search-focus': {
+					'0%': { 
+						boxShadow: '0 0 0 0 hsl(var(--primary) / 0.4)'
+					},
+					'70%': { 
+						boxShadow: '0 0 0 10px hsl(var(--primary) / 0)'
+					},
+					'100%': { 
+						boxShadow: '0 0 0 0 hsl(var(--primary) / 0)'
+					}
 				}
 			},
 			animation: {
@@ -126,7 +174,11 @@ export default {
 				'nova-pulse': 'nova-pulse 3s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
 				'cosmic-rotate': 'cosmic-rotate 20s linear infinite',
-				'glow-pulse': 'glow-pulse 4s ease-in-out infinite'
+				'glow-pulse': 'glow-pulse 4s ease-in-out infinite',
+				'neural-connect': 'neural-connect 3s ease-in-out infinite',
+				'typing': 'typing 1.5s ease-in-out infinite',
+				'particle-drift': 'particle-drift 8s linear infinite',
+				'search-focus': 'search-focus 2s infinite'
 			}
 		}
 	},

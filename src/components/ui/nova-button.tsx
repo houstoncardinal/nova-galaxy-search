@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const novaButtonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-medium font-space transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-pill text-base font-semibold font-space transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-pillowy px-8 py-3 min-h-[3.5rem] min-w-[3.5rem]",
   {
     variants: {
       variant: {
@@ -14,10 +14,10 @@ const novaButtonVariants = cva(
         glow: "bg-accent text-accent-foreground shadow-glow animate-glow-pulse hover:scale-105",
       },
       size: {
-        default: "h-11 px-8 py-2",
-        sm: "h-9 rounded-lg px-4",
-        lg: "h-12 rounded-xl px-10",
-        icon: "h-11 w-11",
+        default: "h-[3.5rem] px-10 py-3 text-lg",
+        sm: "h-12 rounded-xl px-6 text-base",
+        lg: "h-[4.5rem] rounded-pill px-14 text-xl",
+        icon: "h-[3.5rem] w-[3.5rem]",
       },
     },
     defaultVariants: {
