@@ -55,6 +55,10 @@
     --gradient-nova: linear-gradient(135deg, hsl(220, 100%, 60%), hsl(260, 80%, 60%));
     --gradient-glow: linear-gradient(135deg, hsl(220, 100%, 70%), hsl(180, 100%, 70%));
 
+    /* Additional utility classes */
+    --shadow-pillowy: 0 4px 20px hsla(220, 15%, 0%, 0.1);
+    --shadow-glow: 0 0 30px hsla(220, 100%, 60%, 0.3);
+
     /* Robotic Glow Effects */
     --shadow-nova: 0 8px 32px hsl(220, 100%, 60%, 0.15), 0 2px 8px hsl(220, 100%, 60%, 0.08);
     --shadow-cosmic: 0 4px 20px hsl(180, 100%, 60%, 0.12), 0 1px 4px hsl(180, 100%, 60%, 0.06);
